@@ -161,8 +161,10 @@
         break;
     }
     
-    NSMutableString* mstring = [[n stringValue] mutableCopy];
-    
+    NSNumberFormatter *newFormatter = [[NSNumberFormatter alloc] init];
+    NSString *formattedString = [newFormatter stringFromNumber:n];
+    NSMutableString* mstring = [NSMutableString stringWithString:formattedString];
+      
     @try {
       if([mstring length] == 0){
         //special case...nothing in the field yet, so set a currency symbol first
