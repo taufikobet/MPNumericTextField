@@ -24,7 +24,7 @@
   _currencyField.placeholderColor = placeholderColor;
   _customCurrencyField.placeholderColor = placeholderColor;
   
-  _decimalField.type = MPNumericTextFieldDecimal;
+  _decimalField.type = MPNumericTextFieldDecimalWithoutFraction;
   _percentageField.type = MPNumericTextFieldPercentage;
   _currencyField.type = MPNumericTextFieldCurrency;
   _customCurrencyField.type = MPNumericTextFieldCurrency;

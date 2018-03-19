@@ -38,7 +38,8 @@ typedef NS_ENUM(NSUInteger, MPNumericTextFieldType) {
   MPNumericTextFieldDecimal = 0,
   MPNumericTextFieldCurrency,
   MPNumericTextFieldPercentage,
-  MPNumericTextFieldInteger
+  MPNumericTextFieldInteger,
+  MPNumericTextFieldDecimalWithoutFraction
 };
 
 IB_DESIGNABLE

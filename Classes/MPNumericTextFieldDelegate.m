@@ -152,6 +152,13 @@
         mul = pow(10, [currencyFormatter maximumFractionDigits] + 1);
         n = @(round(([n doubleValue] * mul))/10);
         break;
+    case MPNumericTextFieldDecimalWithoutFraction:
+        currencyFormatter.minimumFractionDigits = 0;
+        currencyFormatter.maximumFractionDigits = 0;
+        n = [MPFormatterUtils numberFromString:fxText.encodedValue locale:locale];
+        mul = pow(10, [currencyFormatter maximumFractionDigits] + 1);
+        n = @(round(([n doubleValue] * mul))/10);
+        break;
       case MPNumericTextFieldPercentage:
         n = [MPFormatterUtils percentageFromString:fxText.encodedValue locale:locale];
         n = @(round(([n doubleValue] * 10000))/10);
@@ -201,6 +208,10 @@
         fxText.encodedValue = [MPFormatterUtils stringFromCurrency:number locale:locale currencyCode:currencyCode];
         break;
       case MPNumericTextFieldDecimal:
+        number = @(number.doubleValue / rate);
+        fxText.encodedValue = [MPFormatterUtils stringFromNumber:number locale:locale];
+        break;
+    case MPNumericTextFieldDecimalWithoutFraction:
         number = @(number.doubleValue / rate);
         fxText.encodedValue = [MPFormatterUtils stringFromNumber:number locale:locale];
         break;

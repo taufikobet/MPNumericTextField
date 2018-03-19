@@ -96,6 +96,11 @@ MPNumericTextFieldDelegate *numericDelegate;
       self.placeholder = [MPFormatterUtils stringFromNumber:@(0) locale:self.locale];
       self.keyboardType = UIKeyboardTypeDecimalPad;
       break;
+          
+    case MPNumericTextFieldDecimalWithoutFraction:
+      self.placeholder = [MPFormatterUtils stringFromNumber:@(0) locale:self.locale];
+      self.keyboardType = UIKeyboardTypeNumberPad;
+      break;
     
     case MPNumericTextFieldInteger:
       self.placeholder = [MPFormatterUtils stringFromInteger:@(0) locale:self.locale];
@@ -125,6 +130,9 @@ MPNumericTextFieldDelegate *numericDelegate;
     case MPNumericTextFieldDecimal:
       self.encodedValue = [MPFormatterUtils stringFromNumber:value locale:_locale];
       break;
+    case MPNumericTextFieldDecimalWithoutFraction:
+      self.encodedValue = [MPFormatterUtils stringFromNumber:value locale:_locale];
+      break;
     case MPNumericTextFieldPercentage:
       self.encodedValue = [MPFormatterUtils stringFromPercentage:value locale:_locale];
       break;
@@ -141,6 +149,8 @@ MPNumericTextFieldDelegate *numericDelegate;
     case MPNumericTextFieldCurrency:
       return [MPFormatterUtils currencyFromString:_encodedValue locale:_locale currencyCode:_currencyCode];
     case MPNumericTextFieldDecimal:
+      return [MPFormatterUtils numberFromString:_encodedValue locale:_locale];
+    case MPNumericTextFieldDecimalWithoutFraction:
       return [MPFormatterUtils numberFromString:_encodedValue locale:_locale];
     case MPNumericTextFieldPercentage:
       return [MPFormatterUtils percentageFromString:_encodedValue locale:_locale];
